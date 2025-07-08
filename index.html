@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Poppy Flower for You</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        @keyframes gentleSway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+        
+        @keyframes petalWave {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            25% { transform: translateY(-5px) rotate(2deg); }
+            50% { transform: translateY(0) rotate(-1deg); }
+            75% { transform: translateY(2px) rotate(1deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .poppy {
+            animation: gentleSway 8s ease-in-out infinite;
+        }
+        
+        .petal {
+            animation: petalWave 7s ease-in-out infinite;
+            animation-delay: calc(var(--delay) * 0.2s);
+        }
+        
+        .message-box {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-amber-50 to-rose-50 min-h-screen flex flex-col items-center justify-center overflow-hidden font-['Montserrat']">
+    <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center">
+        <!-- Flower Container -->
+        <div class="relative w-64 h-96 mb-8 poppy">
+            <!-- Stem -->
+            <div class="absolute w-3 h-80 bg-gradient-to-b from-green-700 to-green-500 left-1/2 -translate-x-1/2 bottom-0 z-0"></div>
+            
+            <!-- Leaves -->
+            <div class="absolute w-24 h-6 bg-gradient-to-r from-green-700 to-green-500 left-1/2 -translate-x-1/2 bottom-40 rotate-45 z-10" style="clip-path: polygon(10% 50%, 100% 0%, 80% 50%, 100% 100%, 30% 100%);"></div>
+            <div class="absolute w-24 h-6 bg-gradient-to-r from-green-600 to-green-400 left-1/2 -translate-x-1/2 bottom-32 -rotate-45 z-10" style="clip-path: polygon(10% 50%, 100% 0%, 80% 50%, 100% 100%, 30% 100%);"></div>
+            
+            <!-- Center -->
+            <div class="absolute w-24 h-24 bg-black rounded-full left-1/2 -translate-x-1/2 top-20 z-20 shadow-lg grid grid-cols-3 gap-1 p-4">
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+                <span class="block w-3 h-3 bg-gray-200 rounded-full opacity-80"></span>
+            </div>
+            
+            <!-- Petals -->
+            <div class="petal absolute w-44 h-36 bg-gradient-to-b from-red-600 to-red-400 rounded-full left-1/2 -translate-x-1/2 top-16 z-10" style="--delay: 1; transform-origin: bottom center; clip-path: ellipse(55% 65% at 50% 0%);"></div>
+            <div class="petal absolute w-44 h-36 bg-gradient-to-b from-red-700 to-red-500 rounded-full left-1/2 -translate-x-1/2 top-16 z-10" style="--delay: 2; transform: rotate(60deg); transform-origin: bottom center; clip-path: ellipse(55% 65% at 50% 0%);"></div>
+            <div class="petal absolute w-32 h-32 bg-red-500 rounded-full left-1/2 -translate-x-1/2 top-16 z-10" style="--delay: 3; transform: rotate(120deg); transform-origin: bottom center;"></div>
+            <div class="petal absolute w-32 h-32 bg-red-500 rounded-full left-1/2 -translate-x-1/2 top-16 z-10" style="--delay: 4; transform: rotate(180deg); transform-origin: bottom center;"></div>
+            <div class="petal absolute w-32 h-32 bg-red-500 rounded-full left-1/2 -translate-x-1/2 top-16 z-10" style="--delay: 5; transform: rotate(240deg); transform-origin: bottom center;"></div>
+            <div class="petal absolute w-44 h-36 bg-gradient-to-b from-red-800 to-red-500 rounded-full left-1/2 -translate-x-1/2 top-16 z-10" style="--delay: 6; transform: rotate(300deg); transform-origin: bottom center; clip-path: ellipse(55% 65% at 50% 0%);"></div>
+        </div>
+        
+        <!-- Message Box -->
+        <div class="message-box bg-white bg-opacity-80 backdrop-blur-sm rounded-2xl p-8 shadow-xl w-80 text-center">
+            <h1 class="text-3xl font-bold text-rose-600 mb-4 font-['Pacifico']">For Someone Special</h1>
+            <p class="text-gray-700 mb-6">Just like this poppy, you bring color and beauty to the world around you.</p>
+            <div class="h-px bg-gradient-to-r from-transparent via-rose-300 to-transparent my-4"></div>
+            <p class="text-gray-600 text-sm">Created with love ❤️<br>Refresh the page for a new animation!</p>
+        </div>
+        
+        <!-- Floating Petals Background -->
+        <div id="floatingParticles" class="absolute inset-0 overflow-hidden pointer-events-none z-0"></div>
+    </div>
+
+    <script>
+        // Create floating petals
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('floatingParticles');
+            const colors = ['#ef4444', '#f87171', '#fca5a5', '#fecaca'];
+            
+            for (let i = 0; i < 15; i++) {
+                const petal = document.createElement('div');
+                petal.style.position = 'absolute';
+                petal.style.width = `${Math.random() * 20 + 10}px`;
+                petal.style.height = `${Math.random() * 20 + 10}px`;
+                petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+                petal.style.borderRadius = '50%';
+                petal.style.opacity = Math.random() * 0.5 + 0.3;
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.top = `${Math.random() * 100}%`;
+                petal.style.animation = `float ${Math.random() * 10 + 5}s ease-in-out infinite`;
+                petal.style.zIndex = 0;
+                
+                container.appendChild(petal);
+            }
+        });
+        
+        // Make the flower interactive
+        const poppy = document.querySelector('.poppy');
+        poppy.addEventListener('mouseover', () => {
+            poppy.style.animationDuration = '4s';
+        });
+        
+        poppy.addEventListener('mouseout', () => {
+            poppy.style.animationDuration = '8s';
+        });
+    </script>
+</body>
+</html>
+
